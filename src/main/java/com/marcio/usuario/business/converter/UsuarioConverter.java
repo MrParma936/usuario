@@ -19,7 +19,7 @@ public class UsuarioConverter {
                 .email(usuarioDTO.getEmail())
                 .senha(usuarioDTO.getSenha())
                 .enderecos(paraListaEndereco(usuarioDTO.getEnderecos()))
-                .telefones()
+                .telefones(paraListaTelefone(usuarioDTO.getTelefones()))
                 .build();
     }
 
@@ -41,7 +41,7 @@ public class UsuarioConverter {
                 .cidade(enderecoDTO.getCidade())
                 .estado(enderecoDTO.getEstado())
                 .cep(enderecoDTO.getCep())
-                .build()
+                .build();
     }
 
     public List<Telefone> paraListaTelefone(List<TelefoneDTO> telefoneDTOS) {
@@ -84,7 +84,7 @@ public class UsuarioConverter {
                 .cidade(enderecoDTO.getCidade())
                 .estado(enderecoDTO.getEstado())
                 .cep(enderecoDTO.getCep())
-                .build()
+                .build();
     }
 
     public List<TelefoneDTO> paraListaTelefoneDTO(List<Telefone> telefoneDTOS) {
