@@ -1,5 +1,6 @@
 package com.marcio.usuario.business.converter;
 
+import com.marcio.usuario.business.UsuarioService;
 import com.marcio.usuario.business.dto.EnderecoDTO;
 import com.marcio.usuario.business.dto.TelefoneDTO;
 import com.marcio.usuario.business.dto.UsuarioDTO;
@@ -87,6 +88,17 @@ public class UsuarioConverter {
         return TelefoneDTO.builder()
                 .numero(telefone.getNumero())
                 .ddd(telefone.getDdd())
+                .build();
+    }
+
+    public Usuario updateUsuario(UsuarioDTO usuarioDTO, Usuario entity){
+        return Usuario.builder()
+                .nome(usuarioDTO.getNome() != null ? usuarioDTO.getNome() : entity.getNome())
+                .id(entity.getId())
+                .senha(usuarioDTO.getSenha() != null ? usuarioDTO.getSenha() : entity.getSenha())
+                .email(usuarioDTO.getEmail() != null ? usuarioDTO.getEmail() : entity.getEmail())
+                .enderecos(entity.getEnderecos())
+                .telefones(entity.getTelefones())
                 .build();
     }
 
